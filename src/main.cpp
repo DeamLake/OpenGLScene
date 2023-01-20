@@ -8,5 +8,6 @@ const char* SandBox::TITLE = "OpenGLScene";
 int main()
 {
 	SandBox box = SandBox();
+	box.buildScene();
 	box.run();
 }

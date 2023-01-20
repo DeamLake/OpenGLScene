@@ -7,6 +7,7 @@ set(curr_dir ${CMAKE_CURRENT_SOURCE_DIR})
 set(lib_dir ${curr_dir}/3rd_party)
 set(utils_dir ${curr_dir}/src/utils)
 set(render_dir ${curr_dir}/src/render)
+set(shader_dir ${curr_dir}/src/shader)
 
 project(main)
 
@@ -26,12 +27,14 @@ include_directories(${lib_dir}/include)
 include_directories(
     ${utils_dir}
     ${render_dir}
+    ${shader_dir}
 )
 
 # Add block directories
 add_subdirectory(src/utils)
 add_subdirectory(src/render)
+add_subdirectory(src/shader)
 
 # Target
 add_executable(main "src/main.cpp")
-target_link_libraries(main render utils ${lib_dir}/libs/assimp.lib ${lib_dir}/libs/glfw3.lib)
+target_link_libraries(main render utils shader ${lib_dir}/libs/assimp.lib ${lib_dir}/libs/glfw3.lib)
